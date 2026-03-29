@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap');
+
+:root {
+  --bg: #080818;
+  --bg2: #0f0f28;
+  --bg3: #151538;
+  --surface: #1a1a3e;
+  --surface2: #222255;
+  --accent: #6C63FF;
+  --accent2: #FF6584;
+  --accent3: #43E97B;
+  --gold: #FFD700;
+  --cyan: #00D4FF;
+  --orange: #FF9F43;
+  --text: #E8E8F0;
+  --text2: #9999BB;
+  --border: rgba(108,99,255,0.2);
+  --radius: 14px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.5);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { font-size:16px; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#app { width:100%; min-height:100vh; }
+
+/* Buttons */
+.btn {
+  display:inline-flex; align-items:center; justify-content:center; gap:6px;
+  padding:10px 18px; border-radius:10px; border:none;
+  font-family:inherit; font-weight:600; font-size:14px;
+  cursor:pointer; transition:all 0.2s;
+}
+.btn-primary { background:var(--accent); color:white; }
+.btn-primary:hover { background:#5B54E6; transform:translateY(-1px); }
+.btn-ghost { background:transparent; color:var(--text2); border:1px solid var(--border); }
+.btn-ghost:hover { color:var(--text); background:var(--surface2); }
+.btn-danger { background:#FF4757; color:white; }
+.btn-sm { padding:6px 12px; font-size:12px; }
+.btn-full { width:100%; }
+.btn-cyan { background:var(--cyan); color:#000; }
+.btn-gold { background:var(--gold); color:#000; }
+
+.input {
+  width:100%; padding:12px 16px; border-radius:10px;
+  border:1px solid var(--border); background:var(--bg2);
+  color:var(--text); font-size:15px; font-family:inherit;
+  outline:none; transition:border 0.2s;
+}
+.input:focus { border-color:var(--accent); }
+
+/* Auth */
+.auth-container {
+  min-height:100vh; display:flex; align-items:center; justify-content:center;
+  background:radial-gradient(ellipse at 50% 30%, #1a1a4e 0%, var(--bg) 70%);
+  padding:20px;
+}
+.auth-card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:20px; padding:40px 28px; width:100%; max-width:400px;
+  text-align:center; box-shadow:var(--shadow);
+}
+.auth-logo { font-size:64px; margin-bottom:8px; }
+.auth-title {
+  font-family:'Orbitron',sans-serif; font-size:24px; font-weight:700;
+  margin-bottom:4px;
+  background:linear-gradient(135deg, var(--cyan), var(--accent));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.auth-sub { color:var(--text2); margin-bottom:24px; font-size:14px; }
+.auth-tabs { display:flex; gap:4px; background:var(--bg2); border-radius:10px; padding:4px; margin-bottom:20px; }
+.tab-btn {
+  flex:1; padding:8px; border:none; border-radius:8px;
+  background:transparent; color:var(--text2); font-weight:600;
+  cursor:pointer; transition:all 0.2s; font-family:inherit;
+}
+.tab-btn.active { background:var(--accent); color:white; }
+.form-group { margin-bottom:14px; }
+.error-msg { color:var(--accent2); font-size:13px; margin-top:12px; }
+.success-msg { color:var(--accent3); font-size:13px; margin-top:12px; }
+
+/* Home */
+.home-container { min-height:100vh; padding:16px; padding-bottom:40px; }
+.home-header {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:16px;
+}
+.header-left { display:flex; align-items:center; gap:10px; }
+.header-avatar { font-size:28px; }
+.header-name { font-weight:700; font-size:16px; }
+.home-hero { text-align:center; padding:20px 0 10px; }
+.home-hero h1 {
+  font-family:'Orbitron',sans-serif; font-size:28px;
+  background:linear-gradient(135deg, var(--cyan), var(--accent3));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.home-hero p { color:var(--text2); margin-top:6px; font-size:14px; }
+.home-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px;
+}
+.home-card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--radius); padding:24px 16px;
+  text-align:center; cursor:pointer; transition:all 0.25s;
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  font-family:inherit;
+}
+.home-card:hover { transform:scale(1.03); border-color:var(--accent); }
+.card-icon { font-size:36px; }
+.card-title { font-weight:700; font-size:15px; }
+.card-desc { color:var(--text2); font-size:12px; }
+
+/* Terraform View */
+.terraform-container { min-height:100vh; display:flex; flex-direction:column; }
+.terraform-header {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:10px 16px; background:rgba(0,0,0,0.4); z-index:10;
+}
+.terraform-header h2 { font-family:'Orbitron'; font-size:16px; }
+
+.planet-viewport {
+  width:100%; height:50vh; position:relative;
+  background:radial-gradient(ellipse at 50% 50%, #0a0a30 0%, #000 100%);
+  touch-action:none;
+}
+.planet-viewport canvas { display:block; width:100%!important; height:100%!important; }
+
+/* HUD overlays */
+.hud-population {
+  position:absolute; top:10px; left:50%; transform:translateX(-50%);
+  background:rgba(0,0,0,0.6); backdrop-filter:blur(8px);
+  border:1px solid var(--border); border-radius:20px;
+  padding:6px 16px; font-size:13px; font-weight:600;
+  display:flex; align-items:center; gap:6px; z-index:5;
+}
+.hud-habitability {
+  position:absolute; top:10px; right:10px;
+  background:rgba(0,0,0,0.6); backdrop-filter:blur(8px);
+  border:1px solid var(--border); border-radius:12px;
+  padding:6px 12px; font-size:12px; z-index:5;
+}
+
+/* Controls panel */
+.controls-panel {
+  flex:1; overflow-y:auto; padding:12px 16px 40px;
+  background:var(--bg2);
+}
+.controls-section {
+  margin-bottom:16px;
+}
+.section-label {
+  font-size:12px; font-weight:700; color:var(--text2);
+  text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;
+}
+
+/* Biome tools */
+.biome-tools {
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(70px,1fr));
+  gap:6px;
+}
+.biome-btn {
+  background:var(--surface); border:2px solid transparent;
+  border-radius:10px; padding:8px 4px; text-align:center;
+  cursor:pointer; transition:all 0.2s; font-family:inherit;
+}
+.biome-btn.active { border-color:var(--cyan); background:rgba(0,212,255,0.1); }
+.biome-btn .emoji { font-size:20px; display:block; }
+.biome-btn .label { font-size:10px; color:var(--text2); display:block; margin-top:2px; }
+
+/* Sliders */
+.slider-group { margin-bottom:12px; }
+.slider-header {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:4px;
+}
+.slider-header label { font-size:12px; color:var(--text2); }
+.slider-header .slider-val { font-size:13px; font-weight:700; }
+.slider-track {
+  width:100%; height:6px; border-radius:3px; appearance:none;
+  -webkit-appearance:none; background:var(--surface); outline:none;
+  cursor:pointer;
+}
+.slider-track::-webkit-slider-thumb {
+  -webkit-appearance:none; width:20px; height:20px;
+  border-radius:50%; cursor:pointer;
+}
+.slider-o2::-webkit-slider-thumb { background:var(--cyan); }
+.slider-co2::-webkit-slider-thumb { background:var(--orange); }
+.slider-temp::-webkit-slider-thumb { background:var(--accent2); }
+.slider-o2 { background:linear-gradient(to right, #333, var(--cyan)); }
+.slider-co2 { background:linear-gradient(to right, #333, var(--orange)); }
+.slider-temp { background:linear-gradient(to right, #4488ff, #ff4444); }
+
+/* Moon add */
+.moon-row {
+  display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+}
+.moon-badge {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:20px; padding:4px 10px; font-size:12px;
+  display:flex; align-items:center; gap:4px;
+}
+.moon-badge .remove-moon {
+  cursor:pointer; opacity:0.6; transition:opacity 0.2s;
+}
+.moon-badge .remove-moon:hover { opacity:1; }
+
+/* Page */
+.page-container { padding:16px; padding-bottom:40px; min-height:100vh; }
+.page-header {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:20px;
+}
+.page-header h2 { font-family:'Orbitron'; font-size:20px; }
+
+.loading { text-align:center; padding:40px; color:var(--text2); }
+.empty-state { text-align:center; padding:60px 20px; }
+.empty-icon { font-size:48px; display:block; margin-bottom:12px; }
+
+/* Planet cards */
+.planet-list { display:flex; flex-direction:column; gap:12px; }
+.planet-card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--radius); padding:16px;
+}
+.planet-card-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+.planet-card-header h3 { font-size:16px; font-family:'Orbitron'; }
+.planet-badge {
+  font-size:11px; padding:3px 8px; border-radius:20px;
+}
+.planet-badge.public { background:rgba(0,212,255,0.15); color:var(--cyan); }
+.planet-badge.private { background:rgba(153,153,187,0.15); color:var(--text2); }
+.planet-stats {
+  display:flex; gap:12px; font-size:12px; margin-bottom:8px; flex-wrap:wrap;
+}
+.planet-card-actions { display:flex; gap:8px; }
+
+/* Galaxy */
+.galaxy-viewport {
+  width:100%; height:45vh; position:relative;
+  background:radial-gradient(ellipse at 50% 50%, #0a0a30 0%, #000 100%);
+  touch-action:none; border-radius:var(--radius); overflow:hidden;
+  margin-bottom:16px;
+}
+.galaxy-viewport canvas { display:block; width:100%!important; height:100%!important; }
+.galaxy-list { display:flex; flex-direction:column; gap:12px; }
+.gallery-card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--radius); padding:16px;
+}
+.gallery-card-top { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+.gallery-avatar { font-size:22px; }
+.gallery-author { font-size:13px; color:var(--text2); }
+.gallery-name { font-size:16px; margin-bottom:6px; font-family:'Orbitron'; }
+.gallery-rating { margin:6px 0; display:flex; align-items:center; gap:8px; }
+.stars { font-size:16px; }
+.rating-text { font-size:12px; color:var(--text2); }
+.star-buttons { display:flex; gap:2px; margin:6px 0; }
+.star-btn {
+  background:none; border:none; font-size:18px; cursor:pointer;
+  padding:2px; transition:transform 0.15s;
+}
+.star-btn:hover { transform:scale(1.3); }
+
+/* Leaderboard */
+.leaderboard { display:flex; flex-direction:column; gap:8px; }
+.leader-row {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:10px; padding:12px; display:flex;
+  align-items:center; gap:8px; flex-wrap:wrap;
+}
+.leader-row.top-1 { border-color:var(--gold); background:rgba(255,215,0,0.05); }
+.leader-row.top-2 { border-color:#C0C0C0; }
+.leader-row.top-3 { border-color:#CD7F32; }
+.leader-rank { font-size:18px; width:30px; text-align:center; }
+.leader-avatar { font-size:20px; }
+.leader-name { font-weight:600; font-size:14px; flex:1; }
+.leader-score { font-size:12px; color:var(--cyan); font-weight:700; }
+.leader-rating { font-size:12px; }
+
+/* Modal */
+.modal-overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,0.7);
+  display:flex; align-items:center; justify-content:center;
+  z-index:1000; padding:20px; backdrop-filter:blur(4px);
+}
+.modal-card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:20px; padding:28px; width:100%; max-width:360px;
+}
+.modal-card h3 { font-size:20px; margin-bottom:16px; text-align:center; font-family:'Orbitron'; }
+.modal-card .input { margin-bottom:12px; }
+.checkbox-label {
+  display:flex; align-items:center; gap:8px;
+  font-size:14px; color:var(--text2); margin-bottom:12px;
+}
+.checkbox-label input { width:18px; height:18px; }
+.modal-btns { display:flex; gap:8px; }
+.modal-btns .btn { flex:1; }
+
+/* Toast */
+.toast {
+  position:fixed; bottom:40px; left:50%; transform:translateX(-50%) translateY(20px);
+  padding:12px 24px; border-radius:12px; font-size:14px; font-weight:600;
+  z-index:2000; opacity:0; transition:all 0.3s; pointer-events:none;
+}
+.toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+.toast-success { background:var(--accent3); color:#000; }
+.toast-error { background:var(--accent2); color:white; }
+
+/* Mini canvas for gallery thumbnails */
+.mini-planet { width:80px; height:80px; border-radius:50%; overflow:hidden; flex-shrink:0; }
+.mini-planet canvas { width:100%!important; height:100%!important; }
+
+/* Brush size */
+.brush-size-row {
+  display:flex; align-items:center; gap:8px; margin-top:8px;
+}
+.brush-size-row label { font-size:12px; color:var(--text2); white-space:nowrap; }
+.brush-size-row input { flex:1; }
+
+@media (max-width:400px) {
+  .biome-tools { grid-template-columns:repeat(3,1fr); }
+  .planet-viewport { height:40vh; }
+}
